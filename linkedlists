@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+struct node{
+    int data;
+    node* next;
+};
+
+int main () {
+    int x, y;
+    node* first = new node;
+    node* second = new node;
+ cin >> x;
+    first->data = x;
+
+    first->next = second;
+    cin >> y;
+    second->data = y;
+    second->next = nullptr;
+    node* current = new node;
+    current = first;
+
+/* proper way is
+for (node* temp = first; temp; temp=temp->next) {
+cout << temp->data << endl;
+}
+*/
+for (current;current;current=current->next) {
+        cout << current->data << endl;
+    }
+
+    // printing
+//cout << first->data << endl;
+
+
+}
