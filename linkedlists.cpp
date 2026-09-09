@@ -22,6 +22,14 @@ void add(int x, node* &current) {
     copy->next = list;
 }
 
+int count(node* current){
+    int x = 0;
+    for (node* temp = current; temp; temp = temp->next) {
+        x +=1;
+    }
+    return x;
+}
+
 void front(int x, node* &current) {
     node* list = new node;
     list->data = x;
