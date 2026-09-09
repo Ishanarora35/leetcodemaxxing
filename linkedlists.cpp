@@ -29,6 +29,16 @@ void front(int x, node* &current) {
     current = list;
 }
 
+bool find(int x, node* current) {
+    bool z = 1;
+      for (node* temp = current; temp; temp = temp->next) {
+        if (x == temp->data){
+            return z;
+        }
+    }
+    z = 0;
+    return z;
+}
 
 void print(node* start) {
     for (node* temp = start; temp; temp = temp->next) {
