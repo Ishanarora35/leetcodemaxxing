@@ -1,15 +1,16 @@
 #include <iostream>
 using namespace std;
 
+
 struct node {
     int data = 0;
-    node* next = nullptr;
+    node* next;
 };
-// add function that adds from back
+
 void add(int x, node* &current) {
     node* list = new node;
     list->data = x;
-    node* copy = current;
+   node* copy = current;
     if (current == nullptr) {
         current = list;
         return;
@@ -21,32 +22,58 @@ void add(int x, node* &current) {
     copy->next = list;
 }
 
-//insert function that inserts from front
-void insert(int x, node* &current) {
-    node* nee = new node;
-
-    nee->data = x;
-    nee->next = current;
-    current = nee;
+void front(int x, node* &current) {
+    node* list = new node;
+    list->data = x;
+    list->next = current;
+    current = list;
 }
-// for loop that prints through everything
-void print(node* temp) {
-    for (node* current = temp; current; current=current->next) {
-        cout << current->data << endl;
+
+
+void print(node* start) {
+    for (node* temp = start; temp; temp = temp->next) {
+        cout << temp->data << endl;
     }
 }
+
+void removeFront(node* &current) {
+node* copy = current;
+copy = current->next;
+delete current;
+current = copy;
+}
+
+void removeBack(node* &current) {
+
+    // wanna remove from back ok
+node* copy = current;
+if (current == nullptr) {
+    delete current;
+    return;
+} else {
+    while (copy->next->next != nullptr) {
+        copy=copy->next;
+    }
+    delete copy->next;
+    copy->next=nullptr;
+    return;
+}
+
+}
+
 int main () {
-
-   node* head = new node;
+    node* head = new node;
     head->data = 1;
-    head->next = nullptr;
+    node* second = new node;
+    second->data = 2;
+    head->next = second;
+    second->next = nullptr;
 
-
-add(2,head);
 add(3,head);
-
-insert(4,head);
-print(head);
-
-
+add(4,head);
+front(5,head);
+removeFront(head);
+removeBack(head);
+  print(head);
+    
 }
