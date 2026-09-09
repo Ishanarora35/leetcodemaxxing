@@ -80,18 +80,19 @@ if (current == nullptr) {
 }
 
 int main () {
-    node* head = new node;
+node* head = new node;
     head->data = 1;
     node* second = new node;
     second->data = 2;
     head->next = second;
     second->next = nullptr;
-
-add(3,head);
-add(4,head);
-front(5,head);
-removeFront(head);
-removeBack(head);
-  print(head);
-    
+    add(3,head);
+    add(4,head);
+    front(5,head);
+    removeFront(head);
+    removeBack(head);
+    print(head);
+   cout << find(1,head) << endl;  
+   add(67,head);
+   cout << count(head) << endl; //should be 4
 }
