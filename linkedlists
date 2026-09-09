@@ -1,36 +1,47 @@
 #include <iostream>
 using namespace std;
 
-struct node{
-    int data;
-    node* next;
+struct node {
+    int data = 0;
+    node* next = nullptr;
 };
-
-int main () {
-    int x, y;
-    node* first = new node;
-    node* second = new node;
- cin >> x;
-    first->data = x;
-
-    first->next = second;
-    cin >> y;
-    second->data = y;
-    second->next = nullptr;
-    node* current = new node;
-    current = first;
-
-/* proper way is
-for (node* temp = first; temp; temp=temp->next) {
-cout << temp->data << endl;
+// add function that adds from back
+void add(int x, node* &current) {
+    node* list = new node;
+    list->data = x;
+    node* copy = current;
+    while (copy->next != nullptr) {
+        copy = copy->next;
+    }
+    copy->next = list;
 }
-*/
-for (current;current;current=current->next) {
+
+//insert function that inserts from front
+void insert(int x, node* &current) {
+    node* nee = new node;
+
+    nee->data = x;
+    nee->next = current;
+    current = nee;
+}
+// for loop that prints through everything
+void print(node* temp) {
+    for (node* current = temp; current; current=current->next) {
         cout << current->data << endl;
     }
+}
+int main () {
 
-    // printing
-//cout << first->data << endl;
+   node* head = new node;
+    head->data = 1;
+    head->next = nullptr;
+
+
+add(2,head);
+add(3,head);
+
+insert(4,head);
+print(head);
 
 
 }
