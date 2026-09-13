@@ -19,7 +19,7 @@ void add(node* &current, int x) {
     added->data = x;
     node* temp = current;
     if (current == nullptr) {
-        added = current;
+       current = added;
     }
     else {
         while (temp->next != nullptr) {
