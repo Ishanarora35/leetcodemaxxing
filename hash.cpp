@@ -39,5 +39,44 @@ for (auto c: map) {
 }
 }
 
+/*
+struct letter {
+    char cha;
+    int da;
+    letter(char c, int d) {
+        cha = c;
+        da = d;
+    }
+};
+
+int main () {
+    string n = "hello";
+    letter cha();
+    unordered_map<char, int> map;
+    for (int i = 0; i < n.length(); i++) {
+        map[n[i]]++;
+    }
+
+    for (auto cha : map) {
+        cout << cha.first << ", " << cha.second << endl;
+    }
+}
+vector<int> nums = {1, 2, 3, 2, 1, 1, 5, 2};
+gotta count the numbers
+
+
+int main () {
+    vector<int> nums = {1, 2, 3, 2, 1, 1, 5, 2};
+    unordered_map <int, int> map;
+    for (int i = 0; i < nums.size(); i++) {
+        map[nums[i]]++;
+    }
+    for (auto final : map) {
+        cout << final.first << ", " << final.second << endl;
+    }
+}
+
+*/
+
 
 
