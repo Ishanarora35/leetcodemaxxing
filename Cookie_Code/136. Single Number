@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        unordered_map<int, bool> a;
+        for (int x : nums) {
+            if (a.find(x) != nullptr) {
+                a[x] = true;
+            } else {
+                a[x] = false;
+            }
+        }
+        for (const auto& [key, value] : a) {
+            if (!value) {
+                return key;
+            }
+        }
+        return 0;
+    }
+};
